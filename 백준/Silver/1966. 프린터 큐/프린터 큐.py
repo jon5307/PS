@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import sys
 input = sys.stdin.readline
 
-@dataclass(order=True)
+@dataclass
 class Docs:
     prio: int
     want: bool = False
