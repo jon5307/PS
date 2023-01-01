@@ -1,18 +1,16 @@
 from sys import stdin
-from dataclasses import dataclass
+from typing import NamedTuple
 input = stdin.readline
 
-@dataclass
-class Person:
+class Person( NamedTuple):
     age: int
-    order: int
     name: str
 
 users = int(input())
 people = []
-for i in range(users):
+for _ in range(users):
     age, name = input().split()
-    people.append(Person(int(age),i,name))
+    people.append(Person(int(age),name))
 
 people.sort(key=lambda x : x.age)
 
