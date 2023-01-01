@@ -1,4 +1,6 @@
+from sys import stdin
 from dataclasses import dataclass
+input = stdin.readline
 
 @dataclass(order=True)
 class Person:
