@@ -1,10 +1,8 @@
 from sys import stdin
-from typing import NamedTuple
+from collections import namedtuple
 input = stdin.readline
 
-class Person( NamedTuple):
-    age: int
-    name: str
+Person = namedtuple("Person", "age name")
 
 users = int(input())
 people = []
