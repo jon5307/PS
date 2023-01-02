@@ -1,22 +1,19 @@
 from collections import deque
-from dataclasses import dataclass
-import sys
-input = sys.stdin.readline
+from collections import namedtuple
+from sys import stdin
+input = stdin.readline
 
-@dataclass
-class Docs:
-    prio: int
-    want: bool = False
+Docs = namedtuple("Docs", "prio want")
 
 def solve():
     amount, M = map(int,input().split())
-    p = deque(map(int,input().split()))
+    p = list(map(int,input().split()))
     q = deque()
     for i in range(amount):
         if i != M:
-            q.append(Docs(prio = p.popleft()))
+            q.append(Docs(prio = p[i], want = False))
         else:
-            q.append(Docs(prio = p.popleft(), want = True))
+            q.append(Docs(prio = p[i], want = True))
     printed_amount = 0
     while True:
         first_docs = q.popleft()
