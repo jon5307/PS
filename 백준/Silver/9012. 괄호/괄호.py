@@ -1,20 +1,24 @@
 from sys import stdin
 input = stdin.readline
 
-for _ in range(int(input())):
+def check(ps: str) -> bool:
     bracket = 0
-    vps = True
-    for i in input().rstrip():
+    for i in ps:
         if i == '(':
             bracket += 1 
         else:
             bracket -= 1
         if bracket < 0:
-            vps = False
-            break
-    if vps and bracket != 0:
-        vps = False
-    if vps:
+            return False
+    if bracket != 0:
+        return False
+    else:
+        return True
+
+for _ in range(int(input())):
+    bracket = 0
+    vps = True
+    if check(input().rstrip()):
         print("YES")
     else:
         print("NO")
