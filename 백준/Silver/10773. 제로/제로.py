@@ -1,4 +1,6 @@
 from collections import deque
+from sys import stdin
+input = stdin.readline
 
 n = deque()
 
