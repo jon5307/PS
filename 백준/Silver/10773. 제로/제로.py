@@ -1,8 +1,7 @@
-from collections import deque
 from sys import stdin
 input = stdin.readline
 
-n = deque()
+n = []
 
 for _ in range(int(input())):
     a = int(input())
