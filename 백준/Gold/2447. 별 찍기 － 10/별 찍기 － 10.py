@@ -13,7 +13,6 @@ def star_map(star, size, x, y):
             for j in range(y,y+size,step):
                 if not (i == x+step and j == y+step):
                     star_map(star,size//3,i,j)
-    return star
 
 N = int(input())
 star = [[False for _ in range(N)] for _ in range(N)]
