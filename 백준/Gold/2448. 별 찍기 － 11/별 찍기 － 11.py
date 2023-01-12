@@ -1,5 +1,7 @@
 from sys import stdin
+from sys import stdout
 input = stdin.readline
+print = stdout.write
 
 def star_map(star, size, x, y):
     if size == 3:
@@ -23,7 +25,7 @@ star_map(star,N,0,0)
 for i in range(N):
     for j in range(2*N-1):
         if star[i][j]:
-            print("*",end="")
+            print("*")
         else:
-            print(" ",end="")
-    print()
+            print(" ")
+    print("\n")
