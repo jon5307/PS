@@ -11,22 +11,21 @@ def wood_amount(size:int)->int:
 
 def wood_binary_search(start,end):
     global tree, m
+    while end - start > 1:
+        mid = (start + end) // 2
+        mid_amount = wood_amount(mid)
+        if mid_amount >= m:
+            start = mid
+            return wood_binary_search(mid,end)
+        else:
+            end = mid
     if end - start == 0:
         return end
-    elif end - start == 1:
+    else:
         if wood_amount(end) == m:
             return end
         else:
             return start
-    else:
-        mid = (start + end) // 2
-        mid_amount = wood_amount(mid)
-        if mid_amount > m:
-            return wood_binary_search(mid,end)
-        elif mid_amount == m:
-            return wood_binary_search(mid,end)
-        else:
-            return wood_binary_search(start,mid)
 
 n,m = map(int,input().split())
 tree = list(map(int,input().split()))
