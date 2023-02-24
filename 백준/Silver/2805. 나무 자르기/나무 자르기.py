@@ -16,6 +16,7 @@ def wood_binary_search(start,end):
         mid_amount = wood_amount(mid)
         if mid_amount >= m:
             start = mid
+            return wood_binary_search(mid,end)
         else:
             end = mid
     if end - start == 0:
