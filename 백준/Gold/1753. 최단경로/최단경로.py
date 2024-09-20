@@ -1,4 +1,5 @@
 from sys import stdin
+import heapq
 
 input = stdin.readline
 maxsize = 200000
@@ -17,22 +18,18 @@ d = [maxsize for _ in range(v + 1)]
 d[k] = 0
 visited = [False for _ in range(v + 1)]
 
-a = k
-while True:
+hq = []
+heapq.heappush(hq, (0, k))
+while hq:
     # for i in range(1, v + 1):
     #     if d[a] + graph[a][i] < d[i]:
     #         d[i] = d[a] + graph[a][i]
+    da, a = heapq.heappop(hq)
     for b, w in graph[a]:
-        if d[a] + w < d[b]:
-            d[b] = d[a] + w
+        if da + w < d[b]:
+            d[b] = da + w
+            heapq.heappush(hq, (d[b], b))
     visited[a] = True
-    shortest = maxsize
-    for j in range(v + 1):
-        if not visited[j] and d[j] < shortest:
-            shortest = d[j]
-            a = j
-    if shortest == maxsize:
-        break
 
 for i in range(v):
     print(d[i + 1] if d[i + 1] != maxsize else "INF")
