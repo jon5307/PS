@@ -20,7 +20,6 @@ for _ in range(n):
                 break
             weight = queue.popleft()
             graph[start].append((end, weight))
-            graph[end].append((start, weight))
 
 
 def dfs(node):
