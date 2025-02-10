@@ -5,27 +5,24 @@ input = stdin.readline
 
 n, k = map(int, input().rstrip().split())
 
-queue = deque(((n, ""),))
+queue = deque((n,))
 visited = set((n,))
 time = 0
-
+dist = [-1] * 100001
 while queue:
     for _ in range(len(queue)):
-        a, footprint = queue.popleft()
+        a = queue.popleft()
         if a == k:
             print(time)
-            print(n, end=" ")
-            for c in footprint:
-                if c == "-":
-                    n -= 1
-                elif c == "+":
-                    n += 1
-                else:
-                    n *= 2
-                print(n, end=" ")
+            arr = []
+            while a != -1:
+                arr.append(a)
+                a = dist[a]
+            print(" ".join(map(str, arr[::-1])))
             exit(0)
-        for b, c in ((a - 1, "-"), (a + 1, "+"), (2 * a, "*")):
+        for b in (a - 1, a + 1, 2 * a):
             if 0 <= b <= 100000 and b not in visited:
-                queue.append((b, footprint + c))
+                dist[b] = a
+                queue.append(b)
                 visited.add(b)
     time += 1
