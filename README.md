@@ -1,2 +1,1 @@
-# boj
-This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+[![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=jon5307)](https://solved.ac/jon5307)
